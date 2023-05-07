@@ -26,10 +26,10 @@ thrownErr()
 // throw error method 2:
 function throwerr() {
     try {
-        throw new myThrow("This is my Custom error two.","Log error")
+        throw new myThrow("This is my Custom error two.")
     }
     catch(err) {
-        console.log(err.stack)
+        console.log(err.stacks)
     }
 };
 throwerr()
@@ -37,26 +37,26 @@ throwerr()
 function myThrow(msg) {
     this.msg = msg
     this.name = "Custom Error"
-    this.stack = `${this.name} : ${this.msg}`
+    this.stacks = `${this.name} : ${this.msg}`
 }
 
 // Error with loops 
 const loopError = () => {
     let i = 1;
     do {
-      try {
+       try {
         if (i % 2 !== 0) {
-            throw new Error("This is the odd Number")
+            console.error("Hello! This is the Odd Number")
         } else {
-            console.log("This is the even Number.")
+            console.log("Hello! This is the Even Number")
         }
-      }
-      catch(err) {
-        console.error(err)
-      } finally {
-        console.log("Finally....")
+       }
+       catch(err) {
+        console.log(err)
+       } finally {
+        console.log("Finally")
         i++
-      }
-    } while(i <= 5)
-};
+       }
+    } while (i <= 5)
+}
 loopError()
